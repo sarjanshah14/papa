@@ -471,29 +471,6 @@
       object-fit: cover;
     }
 
-    .sc-pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 18px;
-      max-width: 448px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .pin {
-      border-radius: var(--r16);
-      overflow: hidden;
-      background: var(--surf);
-      display: block;
-    }
-
-    .pin img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
     /* ── STORY CARD ── */
     .story-wrap {
       padding: 0 16px;
@@ -654,26 +631,6 @@
       transition: opacity .3s
     }
 
-    .burst-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      max-width: 480px;
-      margin: 20px auto 0;
-      padding: 0 16px;
-    }
-
-    .burst-grid .pin img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    @media (min-width: 700px) {
-      .burst-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
   </style>
 </head>
 
@@ -774,7 +731,7 @@
       <div class="carousel-track">
         <div class="carousel-slide"><img src="assets/img/photo04.jpg" alt=""></div>
         <div class="carousel-slide"><img src="assets/img/photo05.jpg" alt=""></div>
-        <div class="carousel-slide"><img src="assets/img/photo02.jpg" alt=""></div>
+        <div class="carousel-slide"><img src="assets/img/photo02.jpg" alt="" style="object-position: top;"></div>
       </div>
       <div class="carousel-dots"></div>
     </div>
@@ -812,13 +769,16 @@
     <div class="ch-label rv"><span class="ch-label-dot"></span>That one moment</div>
     <div class="ch-title rv d1">આ હાસ્ય, આ પળ —<br><em>ફરી ફરી.</em></div>
   </div>
-  <div class="burst-grid">
-    <div class="pin rv"><img src="assets/img/photo11.jpg" alt="" style="aspect-ratio:2074/3687"></div>
-    <div class="pin rv d1"><img src="assets/img/photo12.jpg" alt="" style="aspect-ratio:2119/3767"></div>
-    <div class="pin rv d2"><img src="assets/img/photo13.jpg" alt="" style="aspect-ratio:2741/4873"></div>
-    <div class="pin rv d2"><img src="assets/img/photo14.jpg" alt="" style="aspect-ratio:2716/4829"></div>
-    <div class="pin rv d3"><img src="assets/img/photo15.jpg" alt="" style="aspect-ratio:1951/3468"></div>
-    <div class="pin rv d3"><img src="assets/img/photo17.jpg" alt="" style="aspect-ratio:2681/4767"></div>
+  <div class="pin-full carousel-wrap rv" id="burstCarousel" style="aspect-ratio:9/16">
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="assets/img/photo11.jpg" alt=""></div>
+      <div class="carousel-slide"><img src="assets/img/photo12.jpg" alt=""></div>
+      <div class="carousel-slide"><img src="assets/img/photo13.jpg" alt=""></div>
+      <div class="carousel-slide"><img src="assets/img/photo14.jpg" alt=""></div>
+      <div class="carousel-slide"><img src="assets/img/photo15.jpg" alt=""></div>
+      <div class="carousel-slide"><img src="assets/img/photo17.jpg" alt=""></div>
+    </div>
+    <div class="carousel-dots"></div>
   </div>
 
   <!-- ── SIGNOFF ── -->
@@ -861,7 +821,7 @@
       function resetTimer() { clearInterval(timer); startTimer(); }
       startTimer();
     }
-    ['ch1Carousel', 'ch3Carousel', 'ch4Carousel'].forEach(id => initCarousel(id));
+    ['ch1Carousel', 'ch3Carousel', 'ch4Carousel', 'burstCarousel'].forEach(id => initCarousel(id));
 
     /* VINYL DISC — background music control */
     const bgMusic = document.getElementById('bgMusic');
