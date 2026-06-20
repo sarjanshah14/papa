@@ -276,9 +276,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: flex-start;
       text-align: center;
-      padding: 24px 24px 64px;
+      padding: 96px 24px 64px;
       position: relative;
       overflow: hidden;
     }
@@ -296,7 +296,7 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: linear-gradient(180deg, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, .1) 40%, rgba(0, 0, 0, .78) 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, .55) 0%, rgba(0, 0, 0, .15) 38%, rgba(0, 0, 0, .12) 100%);
     }
 
     .hero-content {
@@ -638,9 +638,28 @@
       transition: opacity .3s
     }
 
+    .burst-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      max-width: 480px;
+      margin: 20px auto 0;
+      padding: 0 16px;
+    }
+
+    .burst-grid .pin img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
     @media (min-width: 700px) {
       .masonry {
         column-count: 3;
+      }
+
+      .burst-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   </style>
@@ -692,7 +711,7 @@
   <!-- ── CH 1 · LOVE I CAN'T EXPRESS ── -->
   <div class="ch">
     <div class="pin-full rv">
-      <img src="assets/img/photo15.jpg" alt="" style="aspect-ratio:1951/3468">
+      <img src="assets/img/photo19.jpg" alt="" style="aspect-ratio:1024/768">
     </div>
     <div class="ch-label rv d1"><span class="ch-label-dot"></span>What I never said</div>
     <div class="ch-title rv d2">હું બોલી નથી શકતી.<br>પણ <em>અનુભવાય છે.</em></div>
@@ -718,7 +737,7 @@
   <hr class="section-divider">
   <div class="ch">
     <div class="pin-full rv">
-      <img src="assets/img/photo12.jpg" alt="" style="aspect-ratio:2119/3767">
+      <img src="assets/img/photo06.jpg" alt="" style="aspect-ratio:877/1217">
     </div>
     <div class="ch-label rv d1"><span class="ch-label-dot"></span>Please eat on time</div>
     <div class="ch-title rv d2">જમવાનું ભૂલશો નહીં,<br><em>પપ્પા.</em></div>
@@ -777,13 +796,25 @@
     <div class="ch-label rv" style="margin-bottom:18px"><span class="ch-label-dot"></span>યાદો</div>
     <div class="masonry" id="masonry">
       <div class="m-pin"><img src="assets/img/photo09.jpg" alt="" style="aspect-ratio:3213/2410"></div>
-      <div class="m-pin"><img src="assets/img/photo06.jpg" alt="" style="aspect-ratio:877/1217"></div>
       <div class="m-pin"><img src="assets/img/photo01.jpg" alt="" style="aspect-ratio:960/720"></div>
       <div class="m-pin"><img src="assets/img/photo10.jpg" alt="" style="aspect-ratio:3213/2410"></div>
       <div class="m-pin"><img src="assets/img/photo05.jpg" alt="" style="aspect-ratio:633/475"></div>
-      <div class="m-pin"><img src="assets/img/photo19.jpg" alt="" style="aspect-ratio:1024/768"></div>
       <div class="m-pin"><img src="assets/img/photo03.jpg" alt="" style="aspect-ratio:959/719"></div>
     </div>
+  </div>
+
+  <!-- ── THAT ONE MOMENT · THE WHOLE BURST, TOGETHER ── -->
+  <div class="ch" style="padding-top:56px">
+    <div class="ch-label rv"><span class="ch-label-dot"></span>That one moment</div>
+    <div class="ch-title rv d1">આ હાસ્ય, આ પળ —<br><em>ફરી ફરી.</em></div>
+  </div>
+  <div class="burst-grid">
+    <div class="pin rv"><img src="assets/img/photo11.jpg" alt="" style="aspect-ratio:2074/3687"></div>
+    <div class="pin rv d1"><img src="assets/img/photo12.jpg" alt="" style="aspect-ratio:2119/3767"></div>
+    <div class="pin rv d2"><img src="assets/img/photo13.jpg" alt="" style="aspect-ratio:2741/4873"></div>
+    <div class="pin rv d2"><img src="assets/img/photo14.jpg" alt="" style="aspect-ratio:2716/4829"></div>
+    <div class="pin rv d3"><img src="assets/img/photo15.jpg" alt="" style="aspect-ratio:1951/3468"></div>
+    <div class="pin rv d3"><img src="assets/img/photo17.jpg" alt="" style="aspect-ratio:2681/4767"></div>
   </div>
 
   <!-- ── SIGNOFF ── -->
