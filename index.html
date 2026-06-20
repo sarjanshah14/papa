@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="gu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>પપ્પા · Happy Father's Day</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%
+    }
+
+    :root {
+      --red: #e60023;
+      --red-d: #ad081b;
+      --ink: #111110;
+      --body: #1a1a17;
+      --mute: #62625b;
+      --ash: #91918c;
+      --stone: #c8c8c1;
+      --hair: #e2e2db;
+      --canvas: #fff;
+      --surf: #f6f6f3;
+      --soft: #fbfbf9;
+      --r8: 8px;
+      --r16: 16px;
+      --r32: 32px;
+      --rfull: 9999px;
+    }
+
+    body {
+      background: var(--canvas);
+      color: var(--body);
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.45;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .gj {
+      font-family: 'Noto Sans Gujarati', 'DM Sans', sans-serif;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: var(--canvas);
+      border-bottom: 1px solid var(--hair);
+      padding: 0 14px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .nav-logo svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--red)
+    }
+
+    .nav-center {
+      flex: 1;
+      background: var(--surf);
+      border-radius: var(--rfull);
+      height: 36px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 8px;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .nav-center svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: var(--ash);
+      flex-shrink: 0
+    }
+
+    .nav-center span {
+      font-size: 13px;
+      color: var(--ash);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: 'Noto Sans Gujarati', 'DM Sans', sans-serif;
+    }
+
+    .nav-pill {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: var(--rfull);
+      padding: 0 14px;
+      height: 36px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+      transition: background .15s;
+      white-space: nowrap;
+    }
+
+    .nav-pill:active {
+      background: var(--red-d)
+    }
+
+    /* ── VINYL DISC ── */
+    @keyframes spin-vinyl {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .vinyl-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .vinyl-tooltip {
+      position: absolute;
+      top: 130%;
+      right: 0;
+      background: var(--ink);
+      color: var(--canvas);
+      padding: 6px 12px;
+      border-radius: var(--rfull);
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity .3s;
+      z-index: 10;
+    }
+
+    .vinyl-tooltip::after {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      right: 14px;
+      border: 4px solid transparent;
+      border-bottom-color: var(--ink);
+    }
+
+    .vinyl-tooltip.hidden {
+      opacity: 0;
+    }
+
+    .vinyl-btn {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vinyl-disc {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      animation: spin-vinyl 2.5s linear infinite;
+      animation-play-state: running;
+      transition: opacity .3s;
+      background:
+        radial-gradient(circle at 50% 50%, #6b1212 0%, #4a0d0d 28%, transparent 29%),
+        repeating-radial-gradient(circle at 50% 50%,
+          #141414 0px, #1c1c1c 1.2px,
+          #111 2.4px, #1e1e1e 3.6px,
+          #131313 4.8px, #1b1b1b 6px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .55);
+    }
+
+    .vinyl-disc::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg at 60% 30%,
+          transparent 0deg,
+          rgba(255, 255, 255, .04) 30deg,
+          rgba(255, 255, 255, .28) 55deg,
+          rgba(255, 255, 255, .12) 80deg,
+          transparent 110deg,
+          transparent 360deg);
+    }
+
+    .vinyl-disc::after {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 255, 255, .12);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .vinyl-btn.paused .vinyl-disc {
+      animation-play-state: paused;
+      opacity: 0.45;
+    }
+
+    /* ── REVEAL ── */
+    .rv {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease
+    }
+
+    .rv.on {
+      opacity: 1;
+      transform: none
+    }
+
+    .rv.d1 {
+      transition-delay: .08s
+    }
+
+    .rv.d2 {
+      transition-delay: .18s
+    }
+
+    .rv.d3 {
+      transition-delay: .28s
+    }
+
+    .rv.d4 {
+      transition-delay: .38s
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: center;
+      padding: 24px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(180deg, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, .1) 40%, rgba(0, 0, 0, .78) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      color: #fff;
+    }
+
+    .hero-eyebrow {
+      background: rgba(255, 255, 255, .14);
+      backdrop-filter: blur(6px);
+      border-radius: var(--rfull);
+      padding: 6px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 24px;
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .hero-name {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(4.2rem, 20vw, 6.5rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: .95;
+      color: #fff;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .hero-dot {
+      color: var(--red)
+    }
+
+    .hero-rule {
+      width: 36px;
+      height: 3px;
+      background: var(--red);
+      border-radius: var(--rfull);
+      margin: 22px auto;
+    }
+
+    .hero-sub {
+      font-family: 'Noto Sans Gujarati', 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, .92);
+      line-height: 1.7;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255, 255, 255, .7);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      z-index: 3;
+    }
+
+    .scroll-bar {
+      width: 1px;
+      height: 28px;
+      background: linear-gradient(to bottom, var(--red), transparent);
+      animation: spulse 2s ease-in-out infinite;
+      transform-origin: top;
+    }
+
+    @keyframes spulse {
+      0% {
+        transform: scaleY(0);
+        opacity: 0
+      }
+
+      50% {
+        transform: scaleY(1);
+        opacity: 1
+      }
+
+      100% {
+        transform: scaleY(1);
+        opacity: 0
+      }
+    }
+
+    /* ── CHAPTER HEADER ── */
+    .ch {
+      padding: 56px 16px 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .ch-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surf);
+      border-radius: var(--rfull);
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--mute);
+      margin-bottom: 16px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .ch-label-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .ch-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.9rem, 7.5vw, 2.6rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -.5px;
+      margin-bottom: 14px;
+    }
+
+    .ch-title em {
+      font-style: normal;
+      color: var(--red)
+    }
+
+    .ch-body {
+      font-family: 'Noto Sans Gujarati', 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--mute);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .ch-body strong {
+      color: var(--body);
+      font-weight: 700;
+    }
+
+    /* ── PIN / MASONRY ── */
+    .pin-full {
+      margin: 20px auto 0;
+      border-radius: var(--r16);
+      overflow: hidden;
+      background: var(--surf);
+      max-width: 448px;
+    }
+
+    .pin-full img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .sc-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 18px;
+      max-width: 448px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pin {
+      border-radius: var(--r16);
+      overflow: hidden;
+      background: var(--surf);
+      display: block;
+    }
+
+    .pin img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ── STORY CARD ── */
+    .story-wrap {
+      padding: 0 16px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .story-card {
+      background: var(--surf);
+      border-radius: var(--r16);
+      padding: 22px;
+      margin-top: 12px;
+    }
+
+    .sc-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .sc-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--ink);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .sc-body {
+      font-family: 'Noto Sans Gujarati', 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--mute);
+      font-weight: 500;
+    }
+
+    .sc-body strong {
+      color: var(--body);
+      font-weight: 700;
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--hair);
+      margin: 48px 16px 0;
+      max-width: 448px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── GALLERY MASONRY (true column-count, natural aspect ratios) ── */
+    .gallery-outer {
+      padding: 56px 16px 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .masonry {
+      column-count: 2;
+      column-gap: 8px;
+    }
+
+    .m-pin {
+      break-inside: avoid;
+      margin-bottom: 8px;
+      border-radius: var(--r16);
+      overflow: hidden;
+      background: var(--surf);
+      display: block;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .m-pin.on {
+      opacity: 1;
+      transform: none;
+    }
+
+    .m-pin img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ── SIGNOFF ── */
+    .signoff {
+      padding: 72px 24px 56px;
+      text-align: center;
+      border-top: 1px solid var(--hair);
+      margin-top: 56px;
+    }
+
+    .so-rule {
+      width: 36px;
+      height: 3px;
+      background: var(--red);
+      border-radius: var(--rfull);
+      margin: 0 auto 28px;
+      opacity: .5;
+    }
+
+    .so-main {
+      font-family: 'Noto Sans Gujarati', 'DM Sans', sans-serif;
+      font-size: clamp(1.3rem, 5.5vw, 1.8rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .so-title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.6rem, 6vw, 2.2rem);
+      font-style: italic;
+      color: var(--red);
+      margin-bottom: 28px;
+    }
+
+    .so-stamp {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--stone);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── CONFETTI ── */
+    #cc {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity .3s
+    }
+
+    @media (min-width: 700px) {
+      .masonry {
+        column-count: 3;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="cc"></canvas>
+  <audio id="bgMusic" src="assets/audio/song.mp3" loop preload="auto"></audio>
+
+  <!-- ── NAV ── -->
+  <nav class="nav">
+    <a class="nav-logo" href="#">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" />
+      </svg>
+    </a>
+    <div class="nav-center">
+      <svg viewBox="0 0 24 24">
+        <path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" stroke-width="2" stroke-linecap="round" />
+      </svg>
+      <span>Happy father day</span>
+    </div>
+    <div class="vinyl-wrap">
+      <div class="vinyl-tooltip" id="vinylTooltip">Press to play</div>
+      <button class="vinyl-btn paused" id="vinylBtn" aria-label="Toggle music" title="Toggle music">
+        <div class="vinyl-disc" id="vinylDisc"></div>
+      </button>
+    </div>
+    <button class="nav-pill" onclick="celebrate()">Love you ❤️</button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <img class="hero-bg" src="assets/img/photo08.jpg" alt="પપ્પા">
+    <div class="hero-scrim"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow rv">Father's Day · 21 June</div>
+      <h1 class="hero-name rv d1">પપ્પા<span class="hero-dot">.</span></h1>
+      <div class="hero-rule rv d2"></div>
+      <p class="hero-sub rv d3">તમારા માટે,<br>મારા અને મમ્મી તરફથી.</p>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-bar"></div>
+      scroll
+    </div>
+  </section>
+
+  <!-- ── CH 1 · LOVE I CAN'T EXPRESS ── -->
+  <div class="ch">
+    <div class="ch-label rv"><span class="ch-label-dot"></span>What I never said</div>
+    <div class="ch-title rv d1">હું બોલી નથી શકતી.<br>પણ <em>અનુભવાય છે.</em></div>
+    <p class="ch-body rv d2">પપ્પા, હું તમને ક્યારેય મોઢે નથી કહેતી, પણ હું તમને બહુ પ્રેમ કરું છું.</p>
+    <p class="ch-body rv d3">કેટલીય વાર મન થાય છે કહેવાનું, પણ શબ્દો નથી આવતા.</p>
+    <p class="ch-body rv d4">તો આજે આ રીતે કહું છું.</p>
+    <div class="pin-full rv d4">
+      <img src="assets/img/photo11.jpg" alt="" style="aspect-ratio:2074/3687">
+    </div>
+  </div>
+
+  <!-- ── CH 2 · HEALTH OVER WORK ── -->
+  <hr class="section-divider">
+  <div class="ch">
+    <div class="ch-label rv"><span class="ch-label-dot"></span>Our only request</div>
+    <div class="ch-title rv d1">તમારી <em>હેલ્થ</em><br>કામ કરતાં વધારે જરૂરી છે.</div>
+    <p class="ch-body rv d2">અમારે તમારી પાસે કંઈ નથી જોઈતું, એક જ વાત છે — તમારી હેલ્થનું ધ્યાન રાખો.</p>
+    <p class="ch-body rv d3">કામ કરતાં તમારી તબિયત વધારે જરૂરી છે અમારા માટે.</p>
+    <p class="ch-body rv d4"><strong>તમે સ્વસ્થ રહો, એ જ અમારી સૌથી મોટી ખુશી છે.</strong></p>
+    <div class="pin-full rv d4">
+      <img src="assets/img/photo12.jpg" alt="" style="aspect-ratio:2119/3767">
+    </div>
+  </div>
+
+  <!-- ── CH 3 · SKIPPING MEALS ── -->
+  <hr class="section-divider">
+  <div class="ch">
+    <div class="ch-label rv"><span class="ch-label-dot"></span>Please eat on time</div>
+    <div class="ch-title rv d1">જમવાનું ભૂલશો નહીં,<br><em>પપ્પા.</em></div>
+    <p class="ch-body rv d2">તમે કામના લીધે કેટલીય વાર જમવાનું ભૂલી જાવ છો, ટિફિન એમ જ પાછું આવે, બપોરનું જમવાનું છૂટી જાય.</p>
+    <p class="ch-body rv d3"><strong>પપ્પા, હવેથી સમયસર જમજો — મારા અને મમ્મી માટે.</strong></p>
+    <div class="pin-full rv d3">
+      <img src="assets/img/photo13.jpg" alt="" style="aspect-ratio:2741/4873">
+    </div>
+  </div>
+
+  <!-- ── CH 4 · THANK YOU FOR PRIORITY ── -->
+  <hr class="section-divider">
+  <div class="ch">
+    <div class="ch-label rv"><span class="ch-label-dot"></span>Thank you</div>
+    <div class="ch-title rv d1">તમે અમને હંમેશા<br><em>પહેલા</em> રાખ્યા.</div>
+    <p class="ch-body rv d2">તમે હંમેશા મને અને મમ્મીને પહેલા રાખ્યા છે, તમારી પોતાની જરૂરિયાતો કરતાં પણ.</p>
+    <p class="ch-body rv d3">મારી દરેક ઈચ્છા, દરેક સપનું — તમે પૂરું કર્યું છે, કોઈ દિવસ ના નથી પાડી.</p>
+    <p class="ch-body rv d4"><strong>Thank you પપ્પા, આ બધા માટે.</strong></p>
+    <div class="pin-full rv d4">
+      <img src="assets/img/photo14.jpg" alt="" style="aspect-ratio:2716/4829">
+    </div>
+  </div>
+
+  <!-- ── STORY · MOVIE ANECDOTE ── -->
+  <hr class="section-divider">
+  <div class="story-wrap">
+    <div class="story-card" id="sc1">
+      <div class="sc-num">01</div>
+      <div class="sc-title gj">"ચાલો મૂવી જોવા જઈએ"</div>
+      <div class="sc-body">આખો દિવસ શોપ પર કામ કરીને, થાકેલા ઘરે આવો, તોય જો હું કહું "ચાલો મૂવી જોવા જઈએ", તમે તરત કહો
+        <strong>"હા, ટિકિટ બુક કરાવી દે"</strong> — ભલે બીજા દિવસે વહેલા ઉઠવાનું હોય.
+      </div>
+      <div class="sc-pair">
+        <div class="pin">
+          <img src="assets/img/photo15.jpg" alt="" style="aspect-ratio:1951/3468">
+        </div>
+        <div class="pin">
+          <img src="assets/img/photo16.jpg" alt="" style="aspect-ratio:2268/4032">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── GALLERY · TRUE MASONRY, NATURAL ASPECT RATIOS ── -->
+  <div class="gallery-outer">
+    <div class="ch-label rv" style="margin-bottom:18px"><span class="ch-label-dot"></span>યાદો</div>
+    <div class="masonry" id="masonry">
+      <div class="m-pin"><img src="assets/img/photo01.jpg" alt="" style="aspect-ratio:960/720"></div>
+      <div class="m-pin"><img src="assets/img/photo02.jpg" alt="" style="aspect-ratio:2268/4032"></div>
+      <div class="m-pin"><img src="assets/img/photo03.jpg" alt="" style="aspect-ratio:959/719"></div>
+      <div class="m-pin"><img src="assets/img/photo04.jpg" alt="" style="aspect-ratio:1535/1151"></div>
+      <div class="m-pin"><img src="assets/img/photo05.jpg" alt="" style="aspect-ratio:633/475"></div>
+      <div class="m-pin"><img src="assets/img/photo06.jpg" alt="" style="aspect-ratio:877/1217"></div>
+      <div class="m-pin"><img src="assets/img/photo07.jpg" alt="" style="aspect-ratio:1373/772"></div>
+      <div class="m-pin"><img src="assets/img/photo09.jpg" alt="" style="aspect-ratio:3213/2410"></div>
+      <div class="m-pin"><img src="assets/img/photo10.jpg" alt="" style="aspect-ratio:3213/2410"></div>
+      <div class="m-pin"><img src="assets/img/photo17.jpg" alt="" style="aspect-ratio:2681/4767"></div>
+      <div class="m-pin"><img src="assets/img/photo18.jpg" alt="" style="aspect-ratio:3360/1890"></div>
+      <div class="m-pin"><img src="assets/img/photo19.jpg" alt="" style="aspect-ratio:1024/768"></div>
+      <div class="m-pin"><img src="assets/img/photo20.jpg" alt="" style="aspect-ratio:528/1152"></div>
+    </div>
+  </div>
+
+  <!-- ── SIGNOFF ── -->
+  <div class="signoff" id="s7">
+    <div class="so-rule"></div>
+    <div class="so-main rv gj">તમે મારા હીરો છો, પપ્પા.</div>
+    <div class="so-title rv d1">Happy Father's Day</div>
+    <div class="so-stamp rv d2">21 · VI · MMXXVI</div>
+  </div>
+
+  <script>
+    /* REVEAL */
+    const ro = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on') }), { threshold: .1 });
+    document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+
+    const mo = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on') }), { threshold: .06 });
+    document.querySelectorAll('.m-pin').forEach(el => mo.observe(el));
+
+    /* VINYL DISC — background music control */
+    const bgMusic = document.getElementById('bgMusic');
+    const vinylBtn = document.getElementById('vinylBtn');
+    const vinylTooltip = document.getElementById('vinylTooltip');
+    let playing = false;
+
+    function setPlaying(state) {
+      playing = state;
+      vinylBtn.classList.toggle('paused', !state);
+      if (state && vinylTooltip) {
+        vinylTooltip.classList.add('hidden');
+      }
+    }
+
+    vinylBtn.addEventListener('click', () => {
+      if (playing) {
+        bgMusic.pause();
+        setPlaying(false);
+      } else {
+        bgMusic.play().then(() => setPlaying(true)).catch(() => { });
+      }
+    });
+
+    /* CONFETTI */
+    const cvs = document.getElementById('cc'), ctx = cvs.getContext('2d');
+    let pieces = [], running = false;
+    const resize = () => { cvs.width = window.innerWidth; cvs.height = window.innerHeight; };
+    resize(); window.addEventListener('resize', resize);
+    const pal = ['#e60023', '#ff6b6b', '#ffd166', '#ffffff', '#f6f6f3', '#ad081b', '#ffb3b3', '#ff8e53'];
+    function celebrate() {
+      cvs.style.opacity = '1'; pieces = [];
+      for (let i = 0; i < 130; i++)pieces.push({
+        x: Math.random() * cvs.width, y: -20 - Math.random() * 100,
+        w: 5 + Math.random() * 9, h: 7 + Math.random() * 14,
+        c: pal[Math.floor(Math.random() * pal.length)],
+        r: Math.random() * Math.PI * 2,
+        vx: (Math.random() - .5) * 3.5, vy: 2.5 + Math.random() * 4.5,
+        vr: (Math.random() - .5) * .17, op: 1, round: Math.random() > .65
+      });
+      if (!running) loop();
+    }
+    function loop() {
+      running = true; ctx.clearRect(0, 0, cvs.width, cvs.height);
+      pieces.forEach(p => {
+        p.x += p.vx; p.y += p.vy; p.r += p.vr; p.vy += .07;
+        if (p.y > cvs.height * .72) p.op -= .018;
+        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r);
+        ctx.globalAlpha = Math.max(0, p.op); ctx.fillStyle = p.c;
+        if (p.round) { ctx.beginPath(); ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2); ctx.fill(); }
+        else ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      });
+      pieces = pieces.filter(p => p.op > 0);
+      if (pieces.length) requestAnimationFrame(loop);
+      else { running = false; cvs.style.opacity = '0'; }
+    }
+  </script>
+</body>
+
+</html>
