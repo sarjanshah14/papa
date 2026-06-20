@@ -550,39 +550,55 @@
       margin-right: auto;
     }
 
-    /* ── GALLERY MASONRY (true column-count, natural aspect ratios) ── */
-    .gallery-outer {
-      padding: 56px 16px 0;
-      max-width: 480px;
-      margin: 0 auto;
+    /* ── CAROUSEL (chapter images, auto-advance + red dots) ── */
+    .carousel-wrap {
+      position: relative;
     }
 
-    .masonry {
-      column-count: 2;
-      column-gap: 8px;
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform .5s cubic-bezier(.4, 0, .2, 1);
     }
 
-    .m-pin {
-      break-inside: avoid;
-      margin-bottom: 8px;
-      border-radius: var(--r16);
-      overflow: hidden;
-      background: var(--surf);
-      display: block;
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-
-    .m-pin.on {
-      opacity: 1;
-      transform: none;
-    }
-
-    .m-pin img {
+    .carousel-slide {
+      flex: 0 0 100%;
       width: 100%;
+      height: 100%;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
       display: block;
       object-fit: cover;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .c-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .55);
+      border: 1.5px solid rgba(255, 255, 255, .8);
+      transition: background .2s, transform .2s;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+      cursor: pointer;
+    }
+
+    .c-dot.active {
+      background: var(--red);
+      border-color: var(--red);
+      transform: scale(1.25);
     }
 
     /* ── SIGNOFF ── */
@@ -654,10 +670,6 @@
     }
 
     @media (min-width: 700px) {
-      .masonry {
-        column-count: 3;
-      }
-
       .burst-grid {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -710,8 +722,12 @@
 
   <!-- ── CH 1 · LOVE I CAN'T EXPRESS ── -->
   <div class="ch">
-    <div class="pin-full rv">
-      <img src="assets/img/photo19.jpg" alt="" style="aspect-ratio:1024/768">
+    <div class="pin-full carousel-wrap rv" id="ch1Carousel" style="aspect-ratio:1024/768">
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="assets/img/photo19.jpg" alt=""></div>
+        <div class="carousel-slide"><img src="assets/img/photo01.jpg" alt=""></div>
+      </div>
+      <div class="carousel-dots"></div>
     </div>
     <div class="ch-label rv d1"><span class="ch-label-dot"></span>What I never said</div>
     <div class="ch-title rv d2">હું બોલી નથી શકતો.<br>પણ <em>અનુભવાય છે.</em></div>
@@ -723,8 +739,12 @@
   <!-- ── CH 2 · HEALTH OVER WORK ── -->
   <hr class="section-divider">
   <div class="ch">
-    <div class="pin-full rv">
-      <img src="assets/img/photo07.jpg" alt="" style="aspect-ratio:1373/772">
+    <div class="pin-full carousel-wrap rv" id="ch2Carousel" style="aspect-ratio:1373/772">
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="assets/img/photo07.jpg" alt=""></div>
+        <div class="carousel-slide"><img src="assets/img/photo10.jpg" alt=""></div>
+      </div>
+      <div class="carousel-dots"></div>
     </div>
     <div class="ch-label rv d1"><span class="ch-label-dot"></span>Our only request</div>
     <div class="ch-title rv d2">તમારી <em>હેલ્થ</em><br>કામ કરતાં વધારે જરૂરી છે.</div>
@@ -736,8 +756,12 @@
   <!-- ── CH 3 · SKIPPING MEALS ── -->
   <hr class="section-divider">
   <div class="ch">
-    <div class="pin-full rv">
-      <img src="assets/img/photo06.jpg" alt="" style="aspect-ratio:877/1217">
+    <div class="pin-full carousel-wrap rv" id="ch3Carousel" style="aspect-ratio:877/1217">
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="assets/img/photo06.jpg" alt=""></div>
+        <div class="carousel-slide"><img src="assets/img/photo03.jpg" alt=""></div>
+      </div>
+      <div class="carousel-dots"></div>
     </div>
     <div class="ch-label rv d1"><span class="ch-label-dot"></span>Please eat on time</div>
     <div class="ch-title rv d2">જમવાનું ભૂલશો નહીં,<br><em>પપ્પા.</em></div>
@@ -748,8 +772,12 @@
   <!-- ── CH 4 · THANK YOU FOR PRIORITY ── -->
   <hr class="section-divider">
   <div class="ch">
-    <div class="pin-full rv">
-      <img src="assets/img/photo04.jpg" alt="" style="aspect-ratio:1535/1151">
+    <div class="pin-full carousel-wrap rv" id="ch4Carousel" style="aspect-ratio:1535/1151">
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="assets/img/photo04.jpg" alt=""></div>
+        <div class="carousel-slide"><img src="assets/img/photo09.jpg" alt=""></div>
+      </div>
+      <div class="carousel-dots"></div>
     </div>
     <div class="ch-label rv d1"><span class="ch-label-dot"></span>Thank you</div>
     <div class="ch-title rv d2">તમે અમને હંમેશા<br><em>પહેલા</em> રાખ્યા.</div>
@@ -761,8 +789,12 @@
   <!-- ── CH 5 · WHAT COMES NEXT ── -->
   <hr class="section-divider">
   <div class="ch">
-    <div class="pin-full rv">
-      <img src="assets/img/photo18.jpg" alt="" style="aspect-ratio:3360/1890">
+    <div class="pin-full carousel-wrap rv" id="ch5Carousel" style="aspect-ratio:3360/1890">
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="assets/img/photo18.jpg" alt=""></div>
+        <div class="carousel-slide"><img src="assets/img/photo05.jpg" alt=""></div>
+      </div>
+      <div class="carousel-dots"></div>
     </div>
     <div class="ch-label rv d1"><span class="ch-label-dot"></span>What comes next</div>
     <div class="ch-title rv d2">હવેથી મારો વારો છે,<br><em>તમારો ભાર ઓછો કરવાનો.</em></div>
@@ -788,18 +820,6 @@
           <img src="assets/img/photo02.jpg" alt="" style="aspect-ratio:2268/4032">
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- ── GALLERY · TRUE MASONRY, NATURAL ASPECT RATIOS, SHUFFLED ── -->
-  <div class="gallery-outer">
-    <div class="ch-label rv" style="margin-bottom:18px"><span class="ch-label-dot"></span>યાદો</div>
-    <div class="masonry" id="masonry">
-      <div class="m-pin"><img src="assets/img/photo09.jpg" alt="" style="aspect-ratio:3213/2410"></div>
-      <div class="m-pin"><img src="assets/img/photo01.jpg" alt="" style="aspect-ratio:960/720"></div>
-      <div class="m-pin"><img src="assets/img/photo10.jpg" alt="" style="aspect-ratio:3213/2410"></div>
-      <div class="m-pin"><img src="assets/img/photo05.jpg" alt="" style="aspect-ratio:633/475"></div>
-      <div class="m-pin"><img src="assets/img/photo03.jpg" alt="" style="aspect-ratio:959/719"></div>
     </div>
   </div>
 
@@ -830,8 +850,34 @@
     const ro = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on') }), { threshold: .1 });
     document.querySelectorAll('.rv').forEach(el => ro.observe(el));
 
-    const mo = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on') }), { threshold: .06 });
-    document.querySelectorAll('.m-pin').forEach(el => mo.observe(el));
+    /* CAROUSELS — auto-advance every 1.5s, red dot indicators */
+    function initCarousel(id, interval = 1500) {
+      const wrap = document.getElementById(id);
+      if (!wrap) return;
+      const track = wrap.querySelector('.carousel-track');
+      const dotsWrap = wrap.querySelector('.carousel-dots');
+      const slides = track.children;
+      const total = slides.length;
+      if (total < 2) return;
+      let cur = 0, timer = null;
+
+      for (let i = 0; i < total; i++) {
+        const d = document.createElement('div');
+        d.className = 'c-dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => { goTo(i); resetTimer(); });
+        dotsWrap.appendChild(d);
+      }
+
+      function goTo(n) {
+        cur = (n + total) % total;
+        track.style.transform = `translateX(-${cur * 100}%)`;
+        wrap.querySelectorAll('.c-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+      }
+      function startTimer() { timer = setInterval(() => goTo(cur + 1), interval); }
+      function resetTimer() { clearInterval(timer); startTimer(); }
+      startTimer();
+    }
+    ['ch1Carousel', 'ch2Carousel', 'ch3Carousel', 'ch4Carousel', 'ch5Carousel'].forEach(id => initCarousel(id));
 
     /* VINYL DISC — background music control */
     const bgMusic = document.getElementById('bgMusic');
